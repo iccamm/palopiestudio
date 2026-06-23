@@ -2438,4 +2438,30 @@ a {
   }
 }
 
+/* INTERACTIVE ESTIMATOR STYLING */
+.estimator-panel {
+  transition: var(--transition);
+}
+
+.estimator-panel:hover {
+  border-color: rgba(35, 191, 194, 0.3) !important;
+}
+
+.addon-checkbox {
+  accent-color: var(--primary-teal);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .estimator-body {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  #estimator-panel {
+    padding: 20px !important;
+  }
+}
+
 

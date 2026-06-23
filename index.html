@@ -446,54 +446,115 @@
           </div>
         </div>
 
-        <!-- Add-on Eceran Section -->
+        <!-- Add-on Eceran Section with Checkboxes -->
         <div class="data-pricing-wrapper">
           <h4 class="data-table-title">Daftar Tarif Layanan Eceran (Add-on)</h4>
           <div class="data-pricing-grid">
-            <div class="data-price-item">
-              <span class="data-name">Perapian &amp; Input Data</span>
+            <label class="data-price-item interactive-addon" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" class="addon-checkbox" data-name="Perapian &amp; Input Data" data-price="75000">
+                <span class="data-name">Perapian &amp; Input Data</span>
+              </span>
               <span class="data-dots"></span>
               <span class="data-price">Rp75.000</span>
-            </div>
-            <div class="data-price-item">
-              <span class="data-name">Tabulasi Data Excel</span>
+            </label>
+            <label class="data-price-item interactive-addon" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" class="addon-checkbox" data-name="Tabulasi Data Excel" data-price="85000">
+                <span class="data-name">Tabulasi Data Excel</span>
+              </span>
               <span class="data-dots"></span>
               <span class="data-price">Rp85.000</span>
-            </div>
-            <div class="data-price-item">
-              <span class="data-name">Statistik Deskriptif</span>
+            </label>
+            <label class="data-price-item interactive-addon" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" class="addon-checkbox" data-name="Statistik Deskriptif" data-price="100000">
+                <span class="data-name">Statistik Deskriptif</span>
+              </span>
               <span class="data-dots"></span>
               <span class="data-price">Rp100.000</span>
-            </div>
-            <div class="data-price-item">
-              <span class="data-name">Validitas &amp; Reliabilitas</span>
+            </label>
+            <label class="data-price-item interactive-addon" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" class="addon-checkbox" data-name="Validitas &amp; Reliabilitas" data-price="125000">
+                <span class="data-name">Validitas &amp; Reliabilitas</span>
+              </span>
               <span class="data-dots"></span>
               <span class="data-price">Rp125.000</span>
-            </div>
-            <div class="data-price-item">
-              <span class="data-name">Uji Asumsi Klasik (per uji)</span>
+            </label>
+            <label class="data-price-item interactive-addon" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" class="addon-checkbox" data-name="Uji Asumsi Klasik" data-price="150000">
+                <span class="data-name">Uji Asumsi Klasik (per uji)</span>
+              </span>
               <span class="data-dots"></span>
               <span class="data-price">Rp150.000</span>
-            </div>
-            <div class="data-price-item">
-              <span class="data-name">Uji Korelasi</span>
+            </label>
+            <label class="data-price-item interactive-addon" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" class="addon-checkbox" data-name="Uji Korelasi" data-price="150000">
+                <span class="data-name">Uji Korelasi</span>
+              </span>
               <span class="data-dots"></span>
               <span class="data-price">Rp150.000</span>
-            </div>
-            <div class="data-price-item">
-              <span class="data-name">Uji Regresi (Linear/Logistik)</span>
+            </label>
+            <label class="data-price-item interactive-addon" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" class="addon-checkbox" data-name="Uji Regresi (Linear/Logistik)" data-price="175000">
+                <span class="data-name">Uji Regresi (Linear/Logistik)</span>
+              </span>
               <span class="data-dots"></span>
               <span class="data-price">Rp175.000</span>
-            </div>
-            <div class="data-price-item">
-              <span class="data-name">Visualisasi Grafik Custom</span>
+            </label>
+            <label class="data-price-item interactive-addon" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between;">
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" class="addon-checkbox" data-name="Visualisasi Grafik Custom" data-price="150000">
+                <span class="data-name">Visualisasi Grafik Custom</span>
+              </span>
               <span class="data-dots"></span>
               <span class="data-price">Rp150.000</span>
-            </div>
+            </label>
           </div>
           <div class="data-note">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="note-icon"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
             <p><strong>Catatan:</strong> Tarif di atas merupakan estimasi pengerjaan standar. Harga final disesuaikan dengan volume data, jumlah variabel, dan kompleksitas model analisis dari pelanggan.</p>
+          </div>
+        </div>
+
+        <!-- Interactive Custom Service Calculator & Checkout Panel -->
+        <div class="estimator-panel" id="estimator-panel" style="margin-top: 40px; background: var(--white); border: 1px solid var(--border-soft); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-md); max-width: 900px; margin-left: auto; margin-right: auto;">
+          <div class="estimator-header" style="margin-bottom: 24px; border-bottom: 1px solid var(--border-soft); padding-bottom: 16px;">
+            <h4 style="font-size: 1.2rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 8px;">💡 Kalkulator Layanan Kustom &amp; Checkout</h4>
+            <p style="font-size: 0.85rem; color: var(--muted-gray); line-height: 1.5; margin: 0;">Pilih paket utama dan centang layanan eceran tambahan di atas untuk melakukan kalkulasi total serta langsung checkout via WhatsApp.</p>
+          </div>
+          <div class="estimator-body" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px;">
+            <div class="estimator-inputs">
+              <div class="input-group">
+                <label for="estimator-package-select" style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px; color: var(--primary-navy);">Pilih Paket Utama (Website / Data):</label>
+                <select id="estimator-package-select" style="width: 100%; padding: 12px; border: 1px solid var(--border-soft); border-radius: 8px; font-size: 0.9rem; outline: none; background: #fff; color: var(--primary-navy); font-weight: 600;">
+                  <option value="none" data-price="0">-- Tanpa Paket Utama (Hanya Eceran) --</option>
+                  <option value="data-standar" data-price="225000">Paket Analisis Data Standar - Rp225.000</option>
+                  <option value="data-lengkap" data-price="300000">Paket Analisis Data Lengkap - Rp300.000</option>
+                  <option value="data-lanjutan" data-price="350000">Paket Analisis Data Lanjutan - Rp350.000</option>
+                  <option value="web-ui" data-price="250000">Web: Desain UI 1 Page - Rp250.000</option>
+                  <option value="web-basic" data-price="500000">Web: Paket Landing Basic - Rp500.000</option>
+                  <option value="web-pro" data-price="850000">Web: Paket Landing Pro - Rp850.000</option>
+                  <option value="web-comprof" data-price="1200000">Web: Paket Company Profile - Rp1.200.000</option>
+                  <option value="web-umkm" data-price="1500000">Web: Paket Website UMKM - Rp1.500.000</option>
+                  <option value="web-custom" data-price="2000000">Web: Paket Custom Pro - Rp2.000.000</option>
+                </select>
+              </div>
+            </div>
+            <div class="estimator-summary" style="background: var(--soft-bg); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-soft); display: flex; flex-direction: column;">
+              <div class="summary-details" id="estimator-summary-details" style="font-size: 0.8rem; flex-grow: 1;">
+                <p style="color: var(--muted-gray); font-style: italic; margin: 0;">Centang add-on di atas atau pilih paket utama untuk merancang pesanan...</p>
+              </div>
+              <div class="summary-total" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-soft); padding-top: 16px; margin-top: 16px;">
+                <span style="font-weight: 700; color: var(--primary-navy); font-size: 0.85rem;">Estimasi Total:</span>
+                <strong id="estimator-total-price" style="font-size: 1.4rem; color: var(--primary-teal); font-weight: 800;">Rp0</strong>
+              </div>
+              <button id="estimator-checkout-btn" class="btn btn-teal btn-block" style="margin-top: 16px; width: 100%;" disabled>Pesan Layanan Kustom via WhatsApp</button>
+            </div>
           </div>
         </div>
       </div>

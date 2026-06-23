@@ -1309,6 +1309,102 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // INTERACTIVE SERVICE ESTIMATOR & CHECKOUT
+  const packageSelect = document.getElementById('estimator-package-select');
+  const addonCheckboxes = document.querySelectorAll('.addon-checkbox');
+  const summaryDetails = document.getElementById('estimator-summary-details');
+  const totalPriceDisplay = document.getElementById('estimator-total-price');
+  const checkoutBtn = document.getElementById('estimator-checkout-btn');
+
+  function calculateEstimate() {
+    let selectedPackageText = "";
+    let selectedPackagePrice = 0;
+    
+    // Get package info
+    const selectedOption = packageSelect.options[packageSelect.selectedIndex];
+    if (selectedOption.value !== "none") {
+      selectedPackageText = selectedOption.text;
+      selectedPackagePrice = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+    }
+
+    // Get selected addons
+    let selectedAddons = [];
+    let addonsTotal = 0;
+    addonCheckboxes.forEach(cb => {
+      if (cb.checked) {
+        const name = cb.getAttribute('data-name');
+        const price = parseFloat(cb.getAttribute('data-price')) || 0;
+        selectedAddons.push({ name, price });
+        addonsTotal += price;
+      }
+    });
+
+    const totalEstimate = selectedPackagePrice + addonsTotal;
+
+    // Update Summary UI
+    if (selectedPackagePrice === 0 && selectedAddons.length === 0) {
+      summaryDetails.innerHTML = `<p style="color: var(--muted-gray); font-style: italic; margin: 0;">Centang add-on di atas atau pilih paket utama untuk merancang pesanan...</p>`;
+      totalPriceDisplay.textContent = "Rp0";
+      checkoutBtn.setAttribute('disabled', 'true');
+    } else {
+      let detailsHTML = `<ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px;">`;
+      if (selectedPackagePrice > 0) {
+        detailsHTML += `
+          <li style="display:flex; justify-content:space-between; font-weight:700; color: var(--primary-navy);">
+            <span>📦 ${selectedPackageText.split(' - ')[0]}</span>
+            <span>Rp${selectedPackagePrice.toLocaleString('id-ID')}</span>
+          </li>
+        `;
+      }
+      selectedAddons.forEach(addon => {
+        detailsHTML += `
+          <li style="display:flex; justify-content:space-between; color: var(--muted-gray);">
+            <span>➕ ${addon.name}</span>
+            <span>Rp${addon.price.toLocaleString('id-ID')}</span>
+          </li>
+        `;
+      });
+      detailsHTML += `</ul>`;
+      summaryDetails.innerHTML = detailsHTML;
+      totalPriceDisplay.textContent = `Rp${totalEstimate.toLocaleString('id-ID')}`;
+      checkoutBtn.removeAttribute('disabled');
+    }
+  }
+
+  if (packageSelect) {
+    packageSelect.addEventListener('change', calculateEstimate);
+  }
+  addonCheckboxes.forEach(cb => {
+    cb.addEventListener('change', calculateEstimate);
+  });
+
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+      const selectedOption = packageSelect.options[packageSelect.selectedIndex];
+      let message = "Halo Palopi Estudio, saya ingin berkonsultasi & memesan layanan kustom berikut:%0A%0A";
+      
+      if (selectedOption.value !== "none") {
+        message += `*Paket Utama:*%0A- ${selectedOption.text}%0A%0A`;
+      }
+
+      let selectedAddons = [];
+      addonCheckboxes.forEach(cb => {
+        if (cb.checked) {
+          selectedAddons.push(`- ${cb.getAttribute('data-name')} (Rp${parseFloat(cb.getAttribute('data-price')).toLocaleString('id-ID')})`);
+        }
+      });
+
+      if (selectedAddons.length > 0) {
+        message += `*Layanan Tambahan (Add-on):*%0A${selectedAddons.join('%0A')}%0A%0A`;
+      }
+
+      message += `*Total Estimasi:* ${totalPriceDisplay.textContent}%0A%0AMohon konfirmasi rincian pesanan ini. Terima kasih!`;
+      
+      const waUrl = `https://wa.me/6281214739276?text=${message}`;
+      window.open(waUrl, '_blank');
+    });
+  }
+
   // Close showcase on Escape key press
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && showcaseOverlay.classList.contains('active')) {
