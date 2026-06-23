@@ -443,7 +443,7 @@
         </div>
         <div class="portfolio-grid">
           <!-- Card 1 -->
-          <div class="portfolio-card">
+          <div class="portfolio-card" data-project="1">
             <div class="portfolio-visual p1">
               <div class="mock-website">
                 <div class="mock-nav"><span></span><span></span></div>
@@ -457,10 +457,11 @@
               <span class="portfolio-tag">Website Development</span>
               <h4>Landing Page Produk</h4>
               <p>Halaman promosi produk dengan desain fresh, clean, dan fokus konversi.</p>
+              <span class="portfolio-link">Lihat Live Demo &rarr;</span>
             </div>
           </div>
           <!-- Card 2 -->
-          <div class="portfolio-card">
+          <div class="portfolio-card" data-project="2">
             <div class="portfolio-visual p2">
               <div class="mock-company">
                 <div class="mock-header"></div>
@@ -475,10 +476,11 @@
               <span class="portfolio-tag">Website Development</span>
               <h4>Website Company Profile</h4>
               <p>Halaman profil perusahaan profesional untuk membangun kredibilitas bisnis.</p>
+              <span class="portfolio-link">Lihat Live Demo &rarr;</span>
             </div>
           </div>
           <!-- Card 3 -->
-          <div class="portfolio-card">
+          <div class="portfolio-card" data-project="3">
             <div class="portfolio-visual p3">
               <div class="mock-store">
                 <div class="mock-nav"></div>
@@ -492,10 +494,11 @@
               <span class="portfolio-tag">Website Development</span>
               <h4>Website UMKM</h4>
               <p>Etalase produk online responsif untuk memudahkan transaksi pelanggan.</p>
+              <span class="portfolio-link">Lihat Live Demo &rarr;</span>
             </div>
           </div>
           <!-- Card 4 -->
-          <div class="portfolio-card">
+          <div class="portfolio-card" data-project="4">
             <div class="portfolio-visual p4">
               <div class="mock-phone">
                 <div class="phone-screen">
@@ -508,10 +511,11 @@
               <span class="portfolio-tag">UI UX Design</span>
               <h4>Desain UI Mobile</h4>
               <p>Layout aplikasi smartphone modern yang rapi dengan user experience optimal.</p>
+              <span class="portfolio-link">Lihat Live Demo &rarr;</span>
             </div>
           </div>
           <!-- Card 5 -->
-          <div class="portfolio-card">
+          <div class="portfolio-card" data-project="5">
             <div class="portfolio-visual p5">
               <div class="mock-dashboard-mini">
                 <div class="mock-db-row">
@@ -525,10 +529,11 @@
               <span class="portfolio-tag">Analisis Data</span>
               <h4>Dashboard Data</h4>
               <p>Rangkuman performa operasional dalam visualisasi dashboard dinamis.</p>
+              <span class="portfolio-link">Lihat Live Demo &rarr;</span>
             </div>
           </div>
           <!-- Card 6 -->
-          <div class="portfolio-card">
+          <div class="portfolio-card" data-project="6">
             <div class="portfolio-visual p6">
               <div class="mock-stats-visual">
                 <svg viewBox="0 0 100 50" class="mini-plot">
@@ -544,6 +549,7 @@
               <span class="portfolio-tag">Analisis Data</span>
               <h4>Visualisasi Statistik</h4>
               <p>Grafik sebaran dan hasil olah statistik yang rapi untuk publikasi ilmiah.</p>
+              <span class="portfolio-link">Lihat Live Demo &rarr;</span>
             </div>
           </div>
         </div>
@@ -757,6 +763,23 @@
       <p>&copy; 2026 Palopi Estudio. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- PORTFOLIO PREVIEW MODAL -->
+  <div id="portfolio-modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <span class="modal-tag" id="modal-tag">Website Development</span>
+          <h3 id="modal-title">Live Demo</h3>
+        </div>
+        <button class="modal-close" id="modal-close" aria-label="Close Preview">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Interactive demo contents will load dynamically via JS -->
+      </div>
+    </div>
+  </div>
 
   <script type="module" src="script.js"></script>
 </body>
