@@ -122,35 +122,68 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectsData = {
     1: {
       tag: "Website Development",
-      title: "Landing Page Produk (Interactive Demo)",
+      title: "Landing Page Produk (Interactive Oprek Panel)",
       build: (container) => {
         container.innerHTML = `
-          <div class="demo-site-preview">
-            <div class="demo-site-nav" id="demo-nav">
-              <div class="demo-site-logo">FreshJuice.co</div>
-              <div class="demo-site-menu">
-                <button class="demo-tab-btn active" data-tab="hero">Home</button>
-                <button class="demo-tab-btn" data-tab="details">Manfaat</button>
-                <button class="demo-tab-btn" data-tab="reviews">Ulasan</button>
+          <div style="display: grid; grid-template-columns: 280px 1fr; gap: 24px;">
+            <!-- Left: Oprek Panel -->
+            <div style="background: var(--soft-bg); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-soft); display: flex; flex-direction: column; gap: 16px; height: fit-content;">
+              <h5 style="color: var(--primary-navy); font-weight: 800; font-size: 0.95rem; border-bottom: 1px solid var(--border-soft); padding-bottom: 8px;">🛠️ PANEL OPREK TEMPLATE</h5>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary-navy);">Nama Brand:</label>
+                <input type="text" id="oprek-brand" value="FreshJuice.co" style="padding: 8px; border: 1px solid var(--border-soft); border-radius: 6px; font-size: 0.8rem; outline: none;">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary-navy);">Heading Utama:</label>
+                <input type="text" id="oprek-heading" value="Segarkan Harimu Dengan Jus Organik" style="padding: 8px; border: 1px solid var(--border-soft); border-radius: 6px; font-size: 0.8rem; outline: none;">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary-navy);">Deskripsi Singkat:</label>
+                <textarea id="oprek-desc" style="padding: 8px; border: 1px solid var(--border-soft); border-radius: 6px; font-size: 0.8rem; outline: none; resize: none; height: 60px;">100% buah asli pilihan tanpa pemanis buatan atau bahan pengawet. Menjaga daya tahan tubuh tetap prima.</textarea>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary-navy);">Warna Tombol / Aksen:</label>
+                <div style="display: flex; gap: 8px;">
+                  <span class="color-dot" data-color="#23BFC2" style="width: 24px; height: 24px; border-radius: 50%; background: #23BFC2; cursor: pointer; border: 2px solid #fff; box-shadow: 0 0 4px rgba(0,0,0,0.2);"></span>
+                  <span class="color-dot" data-color="#F07C42" style="width: 24px; height: 24px; border-radius: 50%; background: #F07C42; cursor: pointer; border: 2px solid #fff; box-shadow: 0 0 4px rgba(0,0,0,0.2);"></span>
+                  <span class="color-dot" data-color="#4caf50" style="width: 24px; height: 24px; border-radius: 50%; background: #4caf50; cursor: pointer; border: 2px solid #fff; box-shadow: 0 0 4px rgba(0,0,0,0.2);"></span>
+                </div>
               </div>
             </div>
-            <div class="demo-site-body" id="demo-body" style="background-color: #f7fafc; transition: all 0.3s ease;">
-              <div class="demo-site-hero">
-                <h4 style="color: var(--primary-navy)">Segarkan Harimu Dengan Jus Organik</h4>
-                <p>100% buah asli pilihan tanpa pemanis buatan atau bahan pengawet. Menjaga daya tahan tubuh tetap prima setiap saat.</p>
-                <button class="btn btn-teal" style="padding: 10px 20px; font-size: 0.85rem;" id="demo-action-btn">Pesan Sekarang</button>
+            
+            <!-- Right: Live Web Frame -->
+            <div class="demo-site-preview" style="height: 100%;">
+              <div class="demo-site-nav" id="demo-nav">
+                <div class="demo-site-logo" id="preview-brand">FreshJuice.co</div>
+                <div class="demo-site-menu">
+                  <button class="demo-tab-btn active" data-tab="hero">Home</button>
+                  <button class="demo-tab-btn" data-tab="details">Manfaat</button>
+                  <button class="demo-tab-btn" data-tab="reviews">Ulasan</button>
+                </div>
               </div>
-            </div>
-            <div style="background-color: #fff; padding: 16px; border-top: 1px solid var(--border-soft); display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
-              <span><strong>Ubah Tema Warna:</strong></span>
-              <div style="display: flex; gap: 8px;">
-                <span class="color-dot" data-color="#23BFC2" style="width: 20px; height: 20px; border-radius: 50%; background: #23BFC2; cursor: pointer; border: 2px solid #fff; box-shadow: 0 0 4px rgba(0,0,0,0.2);"></span>
-                <span class="color-dot" data-color="#F07C42" style="width: 20px; height: 20px; border-radius: 50%; background: #F07C42; cursor: pointer; border: 2px solid #fff; box-shadow: 0 0 4px rgba(0,0,0,0.2);"></span>
-                <span class="color-dot" data-color="#4caf50" style="width: 20px; height: 20px; border-radius: 50%; background: #4caf50; cursor: pointer; border: 2px solid #fff; box-shadow: 0 0 4px rgba(0,0,0,0.2);"></span>
+              <div class="demo-site-body" id="demo-body" style="background-color: #f7fafc; transition: all 0.3s ease; min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                <div class="demo-site-hero">
+                  <h4 style="color: var(--primary-navy); margin-bottom: 8px;" id="preview-heading">Segarkan Harimu Dengan Jus Organik</h4>
+                  <p id="preview-desc" style="margin-bottom: 20px;">100% buah asli pilihan tanpa pemanis buatan atau bahan pengawet. Menjaga daya tahan tubuh tetap prima.</p>
+                  <button class="btn btn-teal" style="padding: 8px 16px; font-size: 0.8rem;" id="demo-action-btn">Pesan Sekarang</button>
+                </div>
               </div>
             </div>
           </div>
         `;
+
+        // Interactive inputs
+        const oprekBrand = container.querySelector('#oprek-brand');
+        const oprekHeading = container.querySelector('#oprek-heading');
+        const oprekDesc = container.querySelector('#oprek-desc');
+        
+        const previewBrand = container.querySelector('#preview-brand');
+        const previewHeading = container.querySelector('#preview-heading');
+        const previewDesc = container.querySelector('#preview-desc');
+
+        oprekBrand.addEventListener('input', () => { previewBrand.textContent = oprekBrand.value; });
+        oprekHeading.addEventListener('input', () => { if (previewHeading) previewHeading.textContent = oprekHeading.value; });
+        oprekDesc.addEventListener('input', () => { if (previewDesc) previewDesc.textContent = oprekDesc.value; });
 
         // Tab switches
         const tabs = container.querySelectorAll('.demo-tab-btn');
@@ -165,15 +198,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (target === 'hero') {
               bodyContent.innerHTML = `
                 <div class="demo-site-hero">
-                  <h4 style="color: var(--primary-navy)">Segarkan Harimu Dengan Jus Organik</h4>
-                  <p>100% buah asli pilihan tanpa pemanis buatan atau bahan pengawet. Menjaga daya tahan tubuh tetap prima setiap saat.</p>
-                  <button class="btn btn-teal" style="padding: 10px 20px; font-size: 0.85rem;">Pesan Sekarang</button>
+                  <h4 style="color: var(--primary-navy); margin-bottom: 8px;" id="preview-heading">${oprekHeading.value}</h4>
+                  <p id="preview-desc" style="margin-bottom: 20px;">${oprekDesc.value}</p>
+                  <button class="btn btn-teal" style="padding: 8px 16px; font-size: 0.8rem;" id="demo-action-btn">Pesan Sekarang</button>
                 </div>
               `;
             } else if (target === 'details') {
               bodyContent.innerHTML = `
                 <div>
-                  <h4 style="color: var(--primary-navy)">Kenapa Memilih Kami?</h4>
+                  <h4 style="color: var(--primary-navy); margin-bottom: 16px;">Kenapa Memilih Kami?</h4>
                   <div class="demo-site-features">
                     <div class="demo-feat-card">
                       <h5>Organik Asli</h5>
@@ -193,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (target === 'reviews') {
               bodyContent.innerHTML = `
                 <div>
-                  <h4 style="color: var(--primary-navy)">Ulasan Pelanggan</h4>
+                  <h4 style="color: var(--primary-navy); margin-bottom: 12px;">Ulasan Pelanggan</h4>
                   <p style="font-style: italic; font-size: 0.95rem; margin-top: 16px; color: var(--muted-gray);">"Jusnya enak sekali, anak-anak suka dan rasanya segar sekali pagi hari!"</p>
                   <strong style="display: block; font-size: 0.8rem; margin-top: 8px; color: var(--primary-navy);">- Budi Santoso</strong>
                 </div>
@@ -218,28 +251,60 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     2: {
       tag: "Website Development",
-      title: "Website Company Profile (Interactive Demo)",
+      title: "Website Company Profile (Interactive Oprek Panel)",
       build: (container) => {
         container.innerHTML = `
-          <div class="demo-site-preview">
-            <div class="demo-site-nav" style="background-color: var(--primary-navy);">
-              <div class="demo-site-logo">AstraConsulting</div>
-              <div class="demo-site-menu">
-                <button class="demo-tab-btn active" data-tab="home">Beranda</button>
-                <button class="demo-tab-btn" data-tab="about">Tentang Kami</button>
-                <button class="demo-tab-btn" data-tab="services">Layanan</button>
+          <div style="display: grid; grid-template-columns: 280px 1fr; gap: 24px;">
+            <!-- Left: Oprek Panel -->
+            <div style="background: var(--soft-bg); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-soft); display: flex; flex-direction: column; gap: 16px; height: fit-content;">
+              <h5 style="color: var(--primary-navy); font-weight: 800; font-size: 0.95rem; border-bottom: 1px solid var(--border-soft); padding-bottom: 8px;">🛠️ PANEL OPREK TEMPLATE</h5>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary-navy);">Nama Perusahaan:</label>
+                <input type="text" id="oprek-corp" value="AstraConsulting" style="padding: 8px; border: 1px solid var(--border-soft); border-radius: 6px; font-size: 0.8rem; outline: none;">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary-navy);">Slogan Utama:</label>
+                <input type="text" id="oprek-slogan" value="Mitra Terpercaya Transformasi Bisnis" style="padding: 8px; border: 1px solid var(--border-soft); border-radius: 6px; font-size: 0.8rem; outline: none;">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary-navy);">Visi Bisnis:</label>
+                <textarea id="oprek-vision" style="padding: 8px; border: 1px solid var(--border-soft); border-radius: 6px; font-size: 0.8rem; outline: none; resize: none; height: 60px;">Menjadi firma konsultasi bisnis terdepan yang menggerakkan inovasi dan efisiensi di Asia Tenggara.</textarea>
               </div>
             </div>
-            <div class="demo-site-body" id="demo-body" style="text-align: left; padding: 32px;">
-              <h4 style="font-size: 1.5rem; color: var(--primary-navy); margin-bottom: 8px;">Mitra Terpercaya Menuju Transformasi Bisnis</h4>
-              <p>Membantu perusahaan merancang strategi, mengoptimalkan proses operasional, dan menerapkan teknologi modern demi efisiensi bisnis berkelanjutan.</p>
-              <div style="margin-top: 24px; border-left: 4px solid var(--primary-teal); padding-left: 16px;">
-                <h5 style="color: var(--primary-navy)">Visi Perusahaan</h5>
-                <p style="font-size: 0.85rem;">Menjadi firma konsultasi bisnis terdepan yang menggerakkan inovasi dan memberikan dampak nyata di Asia Tenggara.</p>
+            
+            <!-- Right: Live Web Frame -->
+            <div class="demo-site-preview" style="height: 100%;">
+              <div class="demo-site-nav" style="background-color: var(--primary-navy);">
+                <div class="demo-site-logo" id="preview-corp">AstraConsulting</div>
+                <div class="demo-site-menu">
+                  <button class="demo-tab-btn active" data-tab="home">Beranda</button>
+                  <button class="demo-tab-btn" data-tab="about">Tentang Kami</button>
+                  <button class="demo-tab-btn" data-tab="services">Layanan</button>
+                </div>
+              </div>
+              <div class="demo-site-body" id="demo-body" style="text-align: left; padding: 32px; min-height: 300px;">
+                <h4 style="font-size: 1.5rem; color: var(--primary-navy); margin-bottom: 8px;" id="preview-slogan">Mitra Terpercaya Transformasi Bisnis</h4>
+                <p>Membantu perusahaan merancang strategi, mengoptimalkan proses operasional, dan menerapkan teknologi modern demi efisiensi bisnis berkelanjutan.</p>
+                <div style="margin-top: 24px; border-left: 4px solid var(--primary-teal); padding-left: 16px;">
+                  <h5 style="color: var(--primary-navy)">Visi Perusahaan</h5>
+                  <p style="font-size: 0.85rem;" id="preview-vision">Menjadi firma konsultasi bisnis terdepan yang menggerakkan inovasi dan efisiensi di Asia Tenggara.</p>
+                </div>
               </div>
             </div>
           </div>
         `;
+
+        const oprekCorp = container.querySelector('#oprek-corp');
+        const oprekSlogan = container.querySelector('#oprek-slogan');
+        const oprekVision = container.querySelector('#oprek-vision');
+        
+        const previewCorp = container.querySelector('#preview-corp');
+        const previewSlogan = container.querySelector('#preview-slogan');
+        const previewVision = container.querySelector('#preview-vision');
+
+        oprekCorp.addEventListener('input', () => { previewCorp.textContent = oprekCorp.value; });
+        oprekSlogan.addEventListener('input', () => { if (previewSlogan) previewSlogan.textContent = oprekSlogan.value; });
+        oprekVision.addEventListener('input', () => { if (previewVision) previewVision.textContent = oprekVision.value; });
 
         const tabs = container.querySelectorAll('.demo-tab-btn');
         const bodyContent = container.querySelector('#demo-body');
@@ -252,11 +317,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (target === 'home') {
               bodyContent.innerHTML = `
-                <h4 style="font-size: 1.5rem; color: var(--primary-navy); margin-bottom: 8px;">Mitra Terpercaya Menuju Transformasi Bisnis</h4>
+                <h4 style="font-size: 1.5rem; color: var(--primary-navy); margin-bottom: 8px;" id="preview-slogan">${oprekSlogan.value}</h4>
                 <p>Membantu perusahaan merancang strategi, mengoptimalkan proses operasional, dan menerapkan teknologi modern demi efisiensi bisnis berkelanjutan.</p>
                 <div style="margin-top: 24px; border-left: 4px solid var(--primary-teal); padding-left: 16px;">
                   <h5 style="color: var(--primary-navy)">Visi Perusahaan</h5>
-                  <p style="font-size: 0.85rem;">Menjadi firma konsultasi bisnis terdepan yang menggerakkan inovasi dan memberikan dampak nyata di Asia Tenggara.</p>
+                  <p style="font-size: 0.85rem;" id="preview-vision">${oprekVision.value}</p>
                 </div>
               `;
             } else if (target === 'about') {
@@ -360,31 +425,80 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     4: {
       tag: "UI UX Design",
-      title: "Desain UI Mobile App (Interactive Simulator)",
+      title: "Desain UI Mobile App (Interactive Oprek Simulator)",
       build: (container) => {
         container.innerHTML = `
-          <div class="demo-phone-wrapper">
-            <div class="demo-phone">
-              <div class="demo-phone-screen">
-                <div class="demo-phone-header">
-                  <span>📱 Palopi App Simulator</span>
-                </div>
-                <div class="demo-phone-body" id="phone-body">
-                  <div style="text-align: center; padding-top: 30px;">
-                    <span style="font-size: 3rem;">👋</span>
-                    <h5 style="font-size: 1.1rem; color: var(--primary-navy); margin-top: 12px; font-weight: 800;">Selamat Datang!</h5>
-                    <p style="font-size: 0.75rem; color: var(--muted-gray); margin-top: 6px;">Silakan isi form sederhana untuk masuk ke simulasi menu.</p>
+          <div style="display: grid; grid-template-columns: 280px 1fr; gap: 24px;">
+            <!-- Left: Control Panel -->
+            <div style="background: var(--soft-bg); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-soft); display: flex; flex-direction: column; gap: 16px; height: fit-content;">
+              <h5 style="color: var(--primary-navy); font-weight: 800; font-size: 0.95rem; border-bottom: 1px solid var(--border-soft); padding-bottom: 8px;">🛠️ OPREK MOBILE DESIGN</h5>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary-navy);">Nama User:</label>
+                <input type="text" id="oprek-user" value="Muhammad Ikhsan" style="padding: 8px; border: 1px solid var(--border-soft); border-radius: 6px; font-size: 0.8rem; outline: none;">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label style="font-size: 0.75rem; font-weight: 700; color: var(--primary-navy);">Ubah Avatar:</label>
+                <select id="oprek-avatar" style="padding: 8px; border: 1px solid var(--border-soft); border-radius: 6px; font-size: 0.8rem; outline: none; background: #fff;">
+                  <option value="👩‍💻">👩‍💻 Developer</option>
+                  <option value="👨‍💼">👨‍💼 Consultant</option>
+                  <option value="👩‍⚕️">👩‍⚕️ Doctor</option>
+                  <option value="🔥">🔥 Brand Owner</option>
+                </select>
+              </div>
+              <button class="btn btn-teal" id="btn-send-notif" style="padding: 8px 16px; font-size: 0.75rem;">Kirim Notifikasi Simulasi</button>
+            </div>
+
+            <!-- Right: Phone Simulator -->
+            <div class="demo-phone-wrapper">
+              <div class="demo-phone">
+                <div class="demo-phone-screen" style="position: relative;">
+                  <!-- Notification Banner (Hidden by default) -->
+                  <div id="phone-notif-banner" style="position: absolute; top: -50px; left: 10px; right: 10px; background: rgba(6, 40, 70, 0.95); color: #fff; padding: 8px 12px; border-radius: 8px; font-size: 0.7rem; box-shadow: var(--shadow-md); z-index: 10; display: flex; align-items: center; gap: 8px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);">
+                    <span>🔔</span>
+                    <div>
+                      <strong style="display: block;">Pemberitahuan Baru</strong>
+                      <span style="opacity: 0.8;">Aktivitas terdeteksi!</span>
+                    </div>
                   </div>
-                  <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 10px;">
-                    <input type="text" placeholder="Username" id="sim-username" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border-soft); font-size: 0.75rem; outline: none;">
-                    <input type="password" placeholder="Password" id="sim-password" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border-soft); font-size: 0.75rem; outline: none;">
+
+                  <div class="demo-phone-header">
+                    <span>📱 Palopi App Simulator</span>
                   </div>
-                  <button class="demo-phone-btn" id="btn-sim-login" style="margin-top: 24px;">Masuk Ke Aplikasi</button>
+                  <div class="demo-phone-body" id="phone-body">
+                    <div style="text-align: center; padding-top: 30px;">
+                      <span style="font-size: 3rem;" id="preview-avatar">👩‍💻</span>
+                      <h5 style="font-size: 1.1rem; color: var(--primary-navy); margin-top: 12px; font-weight: 800;" id="preview-user">Muhammad Ikhsan</h5>
+                      <p style="font-size: 0.75rem; color: var(--muted-gray); margin-top: 6px;">Silakan isi form sederhana untuk masuk ke simulasi menu.</p>
+                    </div>
+                    <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 10px;">
+                      <input type="text" placeholder="Username" id="sim-username" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border-soft); font-size: 0.75rem; outline: none;">
+                      <input type="password" placeholder="Password" id="sim-password" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border-soft); font-size: 0.75rem; outline: none;">
+                    </div>
+                    <button class="demo-phone-btn" id="btn-sim-login" style="margin-top: 24px;">Masuk Ke Aplikasi</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         `;
+
+        const oprekUser = container.querySelector('#oprek-user');
+        const oprekAvatar = container.querySelector('#oprek-avatar');
+        const previewUser = container.querySelector('#preview-user');
+        const previewAvatar = container.querySelector('#preview-avatar');
+        const btnSendNotif = container.querySelector('#btn-send-notif');
+        const notifBanner = container.querySelector('#phone-notif-banner');
+        
+        oprekUser.addEventListener('input', () => { if (previewUser) previewUser.textContent = oprekUser.value; });
+        oprekAvatar.addEventListener('change', () => { if (previewAvatar) previewAvatar.textContent = oprekAvatar.value; });
+
+        // Trigger simulation notification banner
+        btnSendNotif.addEventListener('click', () => {
+          notifBanner.style.top = '10px';
+          setTimeout(() => {
+            notifBanner.style.top = '-50px';
+          }, 3000);
+        });
 
         const phoneBody = container.querySelector('#phone-body');
         const loginBtn = container.querySelector('#btn-sim-login');
@@ -593,34 +707,153 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Open modal handlers
-  portfolioCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const id = card.getAttribute('data-project');
-      const data = projectsData[id];
-      if (data) {
-        modalTag.textContent = data.tag;
-        modalTitle.textContent = data.title;
-        modalBody.innerHTML = ''; // Clear previous content
-        data.build(modalBody);
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Lock main scroll
+  // PORTFOLIO FULLSCREEN SHOWCASE & DEEP LINKING
+  const showcaseOverlay = document.getElementById('showcase-overlay');
+  const showcaseBack = document.getElementById('showcase-back');
+  const showcaseMockUrl = document.getElementById('showcase-mock-url');
+  const showcaseFrame = document.getElementById('showcase-frame');
+  const showcaseSidebar = document.getElementById('showcase-sidebar');
+  const showcaseContainer = document.getElementById('showcase-container');
+  const btnDesktop = document.getElementById('device-desktop');
+  const btnMobile = document.getElementById('device-mobile');
+  const btnShare = document.getElementById('showcase-share');
+
+  const slugToId = {
+    'juice': '1',
+    'company': '2',
+    'store': '3',
+    'app': '4',
+    'dashboard': '5',
+    'stats': '6'
+  };
+
+  const idToSlug = {
+    '1': 'juice',
+    '2': 'company',
+    '3': 'store',
+    '4': 'app',
+    '5': 'dashboard',
+    '6': 'stats'
+  };
+
+  const idToMockUrl = {
+    '1': 'palopi.web.id/portfolio/organic-juice-lp',
+    '2': 'palopi.web.id/portfolio/company-profile',
+    '3': 'palopi.web.id/portfolio/online-store-umkm',
+    '4': 'palopi.web.id/portfolio/mobile-app-ui',
+    '5': 'palopi.web.id/portfolio/analytics-dashboard',
+    '6': 'palopi.web.id/portfolio/statistics-plot'
+  };
+
+  function openShowcase(id) {
+    const data = projectsData[id];
+    if (!data) return;
+
+    showcaseMockUrl.textContent = idToMockUrl[id] || 'palopi.web.id/portfolio/demo';
+    
+    showcaseSidebar.innerHTML = '';
+    showcaseFrame.innerHTML = '';
+    
+    // Build content inside showcaseFrame
+    data.build(showcaseFrame);
+
+    // Reposition Oprek sidebar if available for a cleaner split pane experience
+    const innerGrid = showcaseFrame.querySelector('div[style*="grid-template-columns"]');
+    if (innerGrid) {
+      const oprekPanel = innerGrid.children[0];
+      const previewPanel = innerGrid.children[1];
+      if (oprekPanel && previewPanel) {
+        showcaseSidebar.appendChild(oprekPanel);
+        oprekPanel.style.width = '100%';
+        oprekPanel.style.border = 'none';
+        oprekPanel.style.background = 'transparent';
+        oprekPanel.style.padding = '0';
+
+        showcaseFrame.innerHTML = '';
+        showcaseFrame.appendChild(previewPanel);
+        previewPanel.style.height = '100%';
       }
+    } else {
+      // If there is no left oprek panel grid in the project code, provide a default nice message in sidebar
+      showcaseSidebar.innerHTML = `
+        <div style="background: var(--soft-bg); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-soft);">
+          <h5 style="color: var(--primary-navy); font-weight: 800; font-size: 0.95rem; margin-bottom: 8px;">ℹ️ INFO SHOWCASE</h5>
+          <p style="font-size: 0.8rem; line-height: 1.4; color: var(--primary-navy);">Project ini dirancang interaktif. Klik tombol atau operasikan simulasi secara langsung di layar utama.</p>
+        </div>
+      `;
+    }
+
+    showcaseOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Update URL query parameters
+    const slug = idToSlug[id] || id;
+    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?demo=' + slug;
+    window.history.pushState({ path: newUrl }, '', newUrl);
+  }
+
+  function closeShowcase() {
+    showcaseOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+    showcaseContainer.classList.remove('view-mobile');
+    btnDesktop.classList.add('active');
+    btnMobile.classList.remove('active');
+    
+    const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+    window.history.pushState({ path: cleanUrl }, '', cleanUrl);
+  }
+
+  showcaseBack.addEventListener('click', closeShowcase);
+
+  btnDesktop.addEventListener('click', () => {
+    showcaseContainer.classList.remove('view-mobile');
+    btnDesktop.classList.add('active');
+    btnMobile.classList.remove('active');
+  });
+
+  btnMobile.addEventListener('click', () => {
+    showcaseContainer.classList.add('view-mobile');
+    btnMobile.classList.add('active');
+    btnDesktop.classList.remove('active');
+  });
+
+  btnShare.addEventListener('click', () => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const originalText = btnShare.textContent;
+      btnShare.textContent = 'Link Disalin!';
+      btnShare.style.backgroundColor = 'var(--primary-teal)';
+      setTimeout(() => {
+        btnShare.textContent = originalText;
+        btnShare.style.backgroundColor = '';
+      }, 2000);
     });
   });
 
-  // Close modal handlers
-  const closeModal = () => {
-    modal.classList.remove('active');
-    document.body.style.overflow = ''; // Unlock scroll
-  };
+  // Check URL params on load
+  const urlParams = new URLSearchParams(window.location.search);
+  const demoParam = urlParams.get('demo');
+  if (demoParam) {
+    const projectId = slugToId[demoParam] || demoParam;
+    if (projectsData[projectId]) {
+      setTimeout(() => {
+        openShowcase(projectId);
+      }, 200);
+    }
+  }
 
-  modalClose.addEventListener('click', closeModal);
-  modalBackdrop.addEventListener('click', closeModal);
+  // Set card clicks to open the new fullscreen showcase
+  portfolioCards.forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      const id = card.getAttribute('data-project');
+      openShowcase(id);
+    });
+  });
 
-  // Close modal on Esc key press
+  // Close showcase on Escape key press
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      closeModal();
+    if (e.key === 'Escape' && showcaseOverlay.classList.contains('active')) {
+      closeShowcase();
     }
   });
 });
